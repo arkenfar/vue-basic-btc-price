@@ -4,13 +4,16 @@
             <h2 id="title">{{titleFull}}</h2>
             <h3 id="subtitle">{{subtitle}}</h3>
             <hr>
-        <div v-if="apiData !== null">
+            <div v-if="apiData !== null">
 
-        <p id="btcPrice">{{showApiData.chartName}} : {{showApiData.bpi.USD.rate}} - {{showApiData.bpi.USD.code}}</p>        
-        </div>
-        <div v-else>
-            Loading data...
-        </div>
+            <p id="btcPrice">{{showApiData.chartName}} : {{showApiData.bpi.USD.rate}} - {{showApiData.bpi.USD.code}}</p>        
+            </div>
+            <div v-else>
+                Loading data...
+            </div>
+            <span>
+                <h4>{{envMsg}}</h4>
+            </span>
         </div>
         
     </div>
@@ -25,6 +28,9 @@ export default {
         },
         showApiData(){
             return this.apiData.data
+        },
+        envMsg(){
+            return process.env.VUE_APP_MSG
         }
     },
 

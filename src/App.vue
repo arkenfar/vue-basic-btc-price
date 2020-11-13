@@ -23,7 +23,7 @@ export default {
         /* ignore-console on next line */
         console.log("Starting api call to coindesk")
         axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .get(process.env.VUE_APP_ApiUrl)
       .then((response) => {
         this.condeskData = response
         console.log("Data from Api call: ", response.data)
